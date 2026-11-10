@@ -90,3 +90,15 @@ cite{color:var(--red-d);font-style:normal;font-weight:700}
   .split,.cols3,.site-footer .cols{grid-template-columns:1fr}
   .brand img{height:50px}
 }
+
+/* promo banner, price note, thanksgiving */
+.promo{display:block;background:#b5541b;color:#fff;text-align:center;padding:14px 20px;text-decoration:none;font:600 16px/1.4 system-ui,sans-serif}
+.promo:hover{background:#94430f}
+.callprice{text-align:center;font-size:1.15rem;font-weight:700;color:var(--red-d);margin-top:28px}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:20px}
+.cols2 h2 small{font-size:.9rem;color:var(--muted);font-weight:400}
+.small{font-size:.92rem;color:var(--muted)}
+.tg-hours{margin:0 0 8px}.tg-hours p{margin:.3em 0}
+.dinner{background:#fff;border:2px solid var(--red);border-radius:8px;padding:22px 26px;margin-top:36px}
+.card.feature{border:2px solid #b5541b}
+@media (max-width:860px){.cols2{grid-template-columns:1fr}}
