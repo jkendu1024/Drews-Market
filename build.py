@@ -14,7 +14,7 @@ PHONE = "(732) 974-9399"
 PHONE_TEL = "+17329749399"
 EMAIL = "drewsmarketspringlake@gmail.com"
 ADDRESS_1 = "2407 NJ-71"
-ADDRESS_2 = "Spring Lake, New Jersey 07762"
+ADDRESS_2 = "Spring Lake Heights, New Jersey 07762"
 MAPS = "https://www.google.com/maps/search/?api=1&query=Drew%27s+Market+2407+NJ-71+Spring+Lake+NJ+07762"
 HOURS = [("Monday", "10:00 am – 6:00 pm"), ("Tuesday", "10:00 am – 6:00 pm"),
          ("Wednesday", "10:00 am – 6:00 pm"), ("Thursday", "10:00 am – 6:00 pm"),
@@ -66,7 +66,7 @@ def page(fname, title, desc, body):
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc)}">
 <link rel="stylesheet" href="style.css">
-<script type="application/ld+json">{{"@context":"https://schema.org","@type":"Restaurant","name":"Drew's Market","servesCuisine":"Italian","telephone":"{PHONE_TEL}","email":"{EMAIL}","address":{{"@type":"PostalAddress","streetAddress":"{ADDRESS_1}","addressLocality":"Spring Lake","addressRegion":"NJ","postalCode":"07762","addressCountry":"US"}},"openingHours":["Mo-Sa 10:00-18:00","Su 10:00-16:00"]}}</script>
+<script type="application/ld+json">{{"@context":"https://schema.org","@type":"Restaurant","name":"Drew's Market","servesCuisine":"Italian","telephone":"{PHONE_TEL}","email":"{EMAIL}","address":{{"@type":"PostalAddress","streetAddress":"{ADDRESS_1}","addressLocality":"Spring Lake Heights","addressRegion":"NJ","postalCode":"07762","addressCountry":"US"}},"openingHours":["Mo-Sa 10:00-18:00","Su 10:00-16:00"]}}</script>
 </head>
 <body>
 <div class="topbar"><div class="wrap">
@@ -105,6 +105,9 @@ def page(fname, title, desc, body):
 """
 
 
+PRICE_NOTE = f'<p class="callprice">Call <a href="tel:{PHONE_TEL}">{PHONE}</a> for current prices.</p>'
+
+
 def cta(text="Call to order"):
     return (f'<div class="cta-row"><a class="btn" href="tel:{PHONE_TEL}">{text}: {PHONE}</a>'
             f'<a class="btn ghost" href="mailto:{EMAIL}">Email us</a></div>')
@@ -123,10 +126,11 @@ def hero(title, sub, key="hero"):
 
 PAGES = {}
 
-PAGES["index.html"] = ("Drew's Market – Italian Cooking, Butcher & Catering | Spring Lake, NJ",
- "Authentic homemade Italian cooking, a full-service butcher and catering in Spring Lake, NJ since 1986.",
+PAGES["index.html"] = ("Drew's Market – Italian Cooking, Butcher & Catering | Spring Lake Heights, NJ",
+ "Authentic homemade Italian cooking, a full-service butcher and catering in Spring Lake Heights, NJ since 1986.",
  hero("Authentic Homemade Italian Cooking",
       "Voted #1 Monmouth Magazine Readers' Choice — Best Caterer, Best Deli, Best Butcher.") + f"""
+<a class="promo" href="thanksgiving.html"><strong>Thanksgiving 2026 orders are open!</strong> Fresh all-natural turkeys, cooked dinners &amp; sides. Order by Sunday 11/22 &rarr;</a>
 <section class="wrap intro">
   <p class="lead">We use only the freshest, highest quality ingredients to make sure everything is delicious and presented beautifully.</p>
   {cta()}
@@ -147,7 +151,7 @@ PAGES["index.html"] = ("Drew's Market – Italian Cooking, Butcher & Catering | 
 </div></section>
 """)
 
-PAGES["about.html"] = ("About Us – Drew's Market | Est. 1986", "Family-run Italian market in Spring Lake, NJ since 1986.",
+PAGES["about.html"] = ("About Us – Drew's Market | Est. 1986", "Family-run Italian market in Spring Lake Heights, NJ since 1986.",
  hero("Welcome to Drew's", "Est. 1986", "cuts") + f"""
 <section class="wrap split">
   <div>
@@ -175,7 +179,7 @@ OTHER = ["Baby Back Ribs", "Ground Pork", "Ground Beef, Pork & Veal", "Pork Brac
          "Veal Cutlets", "Veal Osso Bucco", "Lamb Boneless Chops", "Lamb Chops – Loin", "Lamb Crown Roast",
          "Lamb Leg – Bone In", "Lamb Leg Boneless", "Lamb Loin Eye", "Lamb Rack"]
 
-PAGES["butcher.html"] = ("Butcher – Drew's Market | Fresh Cuts Daily", "Prime beef, poultry, pork, veal and lamb cut daily in Spring Lake, NJ.",
+PAGES["butcher.html"] = ("Butcher – Drew's Market | Fresh Cuts Daily", "Prime beef, poultry, pork, veal and lamb cut daily in Spring Lake Heights, NJ.",
  hero("Butcher", "Becoming a vegetarian is a big missed steak.", "meat") + f"""
 <section class="wrap">
   <p class="lead">Quality craftsmanship and the freshest cuts. Call ahead and we'll have your order ready.</p>
@@ -185,6 +189,7 @@ PAGES["butcher.html"] = ("Butcher – Drew's Market | Fresh Cuts Daily", "Prime 
     <div><h2>Pork, Veal, Lamb &amp; More</h2>{ul(OTHER)}</div>
   </div>
   <p class="note">Final prices for butcher items are determined by final weight once prepared. A non-refundable deposit is required for all butcher orders; the balance, less deposit, is due at pick-up. Prices are subject to change without notice.</p>
+  {PRICE_NOTE}
   {cta()}
 </section>
 """)
@@ -201,14 +206,11 @@ PAGES["deli.html"] = ("Deli – Drew's Market | Boar's Head & Homemade", "Boar's
     <div><h2>Salads</h2>{ul(SALADS)}</div>
     <div><h2>Prepared Foods</h2>{ul(HOT)}</div>
     <div><h2>Sandwich Favorites</h2>
-      <ul class="price"><li><span>Grilled Reuben</span><span>$9.99–$12.99</span></li>
-      <li><span>Hot Hero Chicken Parmigiana</span><span>$7.99–$10.99</span></li>
-      <li><span>Hot Hero Milano</span><span>$8.99–$10.99</span></li>
-      <li><span>Sea Girt</span><span>$10.99–$12.99</span></li>
-      <li><span>Hot Grilled Pork</span><span>$9.99–$10.99</span></li></ul>
+      {ul(["Grilled Reuben", "Hot Hero Chicken Parmigiana", "Hot Hero Milano", "Sea Girt", "Hot Grilled Pork"])}
     </div>
   </div>
   <div class="cards small">{img("reuben", "Grilled Reuben")}{img("chickenparm", "Chicken Parm hero")}{img("seagirt", "Sea Girt sandwich")}{img("roastbeef", "Boar's Head roast beef")}</div>
+  {PRICE_NOTE}
   {cta()}
 </section>
 """)
@@ -218,13 +220,9 @@ PAGES["catering.html"] = ("Catering – Drew's Market | Custom Menus for Every O
 <section class="wrap">
   <p class="lead">From intimate family gatherings to 300-sandwich corporate luncheons, we'll build the right menu for your event.</p>
   <h2>Platters</h2>
-  <ul class="price">
-    <li><span>Antipasto Platter (Small)</span><span>$69.99</span></li>
-    <li><span>Antipasto Platter (Medium)</span><span>$99.99</span></li>
-    <li><span>Antipasto Platter (Large)</span><span>$139.99</span></li>
-    <li><span>Asparagus w/ Roasted Garlic &amp; Olive Oil</span><span>$59.99</span></li>
-  </ul>
-  <p>Ask about hot trays, entrées, pasta, salads, sandwich platters and desserts — <a href="menus.html">see our menus</a> or call us to plan your event.</p>
+  {ul(["Antipasto Platter (Small, Medium, Large)", "Asparagus w/ Roasted Garlic & Olive Oil", "Shrimp Cocktail Platter", "Caprese Platter", "Hot trays, entrées, pasta & salads", "Sandwich platters & desserts"])}
+  {PRICE_NOTE}
+  <p>Hosting for the holidays? <a href="thanksgiving.html">See our Thanksgiving 2026 menu</a>.</p>
   <div class="cards small">{img("ribs", "Barbecue ribs")}{img("meatballs", "Homemade meatballs")}{img("chickenparm", "Chicken Parm hero")}{img("roastbeef", "Boar's Head roast beef")}</div>
   {cta("Plan your event")}
 </section>
@@ -234,9 +232,9 @@ PAGES["menus.html"] = ("Menus – Drew's Market | Catering, Sandwich & Holiday M
  hero("Menus", "Catering · Sandwich &amp; Salad · Holiday · Cooking Instructions") + f"""
 <section class="wrap">
   <div class="cards">
-    <div class="card"><h2>Catering Menu</h2><p>Available all year round.</p><p class="todo">PDF coming soon — call for the current menu.</p></div>
-    <div class="card"><h2>Sandwich &amp; Salad Menu</h2><p>Heroes, wraps, homemade salads.</p><p class="todo">PDF coming soon — call for the current menu.</p></div>
-    <div class="card"><h2>Holiday Menus</h2><p>Thanksgiving, Christmas, Easter and more. Order early — holiday slots fill up fast.</p><p class="todo">PDF coming soon — call for the current menu.</p></div>
+    <div class="card"><h2>Catering Menu</h2><p>Available all year round.</p><p>Call for the current menu and prices.</p></div>
+    <div class="card"><h2>Sandwich &amp; Salad Menu</h2><p>Heroes, wraps, homemade salads.</p><p>Call for the current menu and prices.</p></div>
+    <a class="card feature" href="thanksgiving.html"><h2>Thanksgiving 2026</h2><p>Fresh turkeys, cooked dinners, sides &amp; desserts. Order by <strong>Sunday 11/22</strong>.</p><p><span class="btn">View menu</span></p></a>
     <div class="card"><h2>Cooking Instructions</h2><p>Reheating instructions for cooked holiday foods and roasts.</p><p class="todo">PDF coming soon.</p></div>
   </div>
   {cta()}
@@ -246,6 +244,52 @@ PAGES["menus.html"] = ("Menus – Drew's Market | Catering, Sandwich & Holiday M
 PAGES["gallery.html"] = ("Gallery – Drew's Market", "Photos of Drew's Market catering, deli and butcher.",
  hero("Gallery", "A taste of what we make") + '<section class="wrap"><div class="gallery">' +
  "".join(img(k, a) for k, a in [("ribs", "Barbecue ribs"), ("steak", "Fresh steak"), ("cuts", "Prime cuts"), ("burgers", "Sirloin burgers"), ("meatballs", "Homemade meatballs"), ("reuben", "Grilled Reuben"), ("chickenparm", "Chicken Parm hero"), ("seagirt", "Sea Girt sandwich"), ("roastbeef", "Boar's Head roast beef")]) + "</div></section>")
+
+def tg_list(items):
+    return '<ul class="price">' + "".join(f"<li><span>{html.escape(a)}</span><span>{html.escape(b)}</span></li>" for a, b in items) + "</ul>"
+
+
+PAGES["thanksgiving.html"] = ("Thanksgiving 2026 Menu – Drew's Market | Spring Lake Heights, NJ",
+ "Order fresh all-natural turkeys, cooked turkey dinners, sides and desserts from Drew's Market. Order deadline Sunday 11/22.",
+ hero("Thanksgiving Specials 2026", "Order &amp; change deadline: <strong>Sunday 11/22</strong>", "ribs") + f"""
+<section class="wrap">
+  <div class="note tg-hours">
+    <p><strong>Holiday hours:</strong> Mon 11/23 10–6 · Tue 11/24 10–6 · Wed 11/25 9–6 · <strong>Closed</strong> Thanksgiving 11/26 &amp; Friday 11/27</p>
+    <p>Our turkeys are all natural, all grain-fed vegetable diet, no antibiotics, air chilled and never frozen!</p>
+  </div>
+  <div class="cta-row"><a class="btn" href="tel:{PHONE_TEL}">Call to order: {PHONE}</a><a class="btn ghost" href="menus/Thanksgiving_2026.pdf" target="_blank" rel="noopener">Download / print menu (PDF)</a></div>
+  <div class="cols2">
+    <div>
+      <h2>Fresh Turkey</h2>
+      {tg_list([("Turkey Roast, 5–6 lbs, bone-in", "$8.99/lb"), ("Turkey Roast, 5–6 lbs, boneless", "$12.99/lb"),
+                ("Fresh Whole Turkey", "$5.89/lb"), ("Turkey London Broil", "$11.99/lb"), ("Sausage, loose Italian or traditional sage", "$9.99/lb")])}
+      <p class="small">Whole turkeys: 10–12, 12–14, 16–18, 20–22, 24–26, 30–32 lbs. London broils: lemon basil, honey mustard, honey teriyaki or balsamic.</p>
+      <h2>Cooked &amp; Ready</h2>
+      {tg_list([("Cooked Whole Turkey, carved & sliced on the frame (serves 8–10)", "$130"),
+                ("Cooked Sliced Turkey Breast (serves 8–10)", "$79.99"),
+                ("Cooked Virginia Ham, large (~60 slices)", "$79.99"), ("Cooked Virginia Ham, small (~30 slices)", "$59.99"),
+                ("Heritage Berkshire Ham (100% Kurobuta, no nitrates or antibiotics)", "$12.99/lb")])}
+      <p class="small">Virginia ham is sliced, tied, glazed and garnished with cherries and pineapple.</p>
+    </div>
+    <div>
+      <h2>Sides <small>(half trays serve 10–12)</small></h2>
+      {tg_list([("Sweet Potato Mashed", "$59.99"), ("Homemade Stuffing", "$59.99"), ("Mac-N-Cheese", "$49.99"),
+                ("Mashed Potatoes", "$59.99"), ("String Beans in Garlic & Oil", "$49.99"), ("Antipasto Platter", "$69.99"),
+                ("Shrimp Cocktail Platter (50 pcs)", "$89.99"), ("Caprese Platter", "$59.99"),
+                ("Turkey Gravy (quart)", "$9.99"), ("Cranberry Sauce (quart)", "$9.99")])}
+      <h2>Desserts</h2>
+      {tg_list([("Chocolate Cornucopia", "$39.99"), ("Apple Pie or Pumpkin Pie", "$17.99"),
+                ("Chocolate Brownie & Cookie Platter", "$29.99"), ("Chocolate Chip Cookie Platter", "$19.99")])}
+    </div>
+  </div>
+  <div class="dinner">
+    <h2>Complete Thanksgiving Dinner — $350</h2>
+    <p>Serves 8–10 people. Half trays of our homemade sliced turkey breast, mashed potatoes, string beans in garlic &amp; olive oil, stuffing, mac-n-cheese, turkey gravy (quart), cranberry sauce (quart) and a pumpkin pie. <em>No substitutions, please.</em></p>
+  </div>
+  <p class="note">Prices subject to change. NJ sales tax not included where applicable. 3.5% credit card fee; no fee for cash or check. Fresh turkeys require a deposit. Cooked dishes and sides require non-refundable payment in full when ordered.</p>
+  <div class="cta-row"><a class="btn" href="tel:{PHONE_TEL}">Call to order: {PHONE}</a></div>
+</section>
+""")
 
 TESTIMONIALS = [
  ("Hi Chuck, just wanted to show you how beautiful our 3 rib 9.4 LB Christmas prime rib roast turned out. I have been getting the roast from Drew's for several years & it is always excellent. My sister said this one was especially delicious and the family thoroughly enjoyed it. Thanks for keeping the prime meats prime!!!", "Gail Solimine"),
@@ -276,7 +320,7 @@ PAGES["faq.html"] = ("FAQ – Drew's Market | Catering, Butcher & Deli", "Answer
 </section>
 """)
 
-PAGES["contact.html"] = ("Contact – Drew's Market | Spring Lake, NJ", "Call, email or visit Drew's Market at 2407 NJ-71, Spring Lake, NJ.",
+PAGES["contact.html"] = ("Contact – Drew's Market | Spring Lake Heights, NJ", "Call, email or visit Drew's Market at 2407 NJ-71, Spring Lake Heights, NJ.",
  hero("Contact Us", "We're excited to hear from you!") + f"""
 <section class="wrap split">
   <div>
