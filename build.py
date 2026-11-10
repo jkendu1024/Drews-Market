@@ -257,7 +257,7 @@ PAGES["thanksgiving.html"] = ("Thanksgiving 2026 Menu – Drew's Market | Spring
     <p><strong>Holiday hours:</strong> Mon 11/23 10–6 · Tue 11/24 10–6 · Wed 11/25 9–6 · <strong>Closed</strong> Thanksgiving 11/26 &amp; Friday 11/27</p>
     <p>Our turkeys are all natural, all grain-fed vegetable diet, no antibiotics, air chilled and never frozen!</p>
   </div>
-  <div class="cta-row"><a class="btn" href="tel:{PHONE_TEL}">Call to order: {PHONE}</a><a class="btn ghost" href="menus/Thanksgiving_2026.pdf" target="_blank" rel="noopener">Download / print menu (PDF)</a></div>
+  <div class="cta-row"><a class="btn" href="tel:{PHONE_TEL}">Call to order: {PHONE}</a><a class="btn ghost" href="thanksgiving-menu.html">View / print menu</a></div>
   <div class="cols2">
     <div>
       <h2>Fresh Turkey</h2>
