@@ -215,13 +215,165 @@ PAGES["deli.html"] = ("Deli – Drew's Market | Boar's Head & Homemade", "Boar's
 </section>
 """)
 
-PAGES["catering.html"] = ("Catering – Drew's Market | Custom Menus for Every Occasion", "Italian catering for parties, showers, graduations, funerals and corporate events.",
+# ---- Catering menu (from the owner's "Catering Menu 2023" document) ----
+APPETIZERS = [
+ ("Mini Potato Croquettes", "Approx. 30 pcs", "$49.99"),
+ ("Pigs in Blankets", "Approx. 50 pcs", "$59.99"),
+ ("Fried Ravioli", "36 pcs", "$39.99"),
+ ("Mozzarella Sticks", "Approx. 30 pcs", "$39.99"),
+ ("Stuffed Mushrooms", "Approx. 30 pcs", "$49.99"),
+ ("Mini Rice Balls", "30 pcs", "$59.99"),
+ ("Buffalo Wings with Bleu Cheese", "Approx. 40 pcs", "$69.99"),
+ ("Dry Rubbed Wings with Bleu Cheese", "Approx. 40 pcs", "$69.99"),
+ ("Boneless Plain Chicken Tenders", "Approx. 40 pcs", "$49.99"),
+ ("Boneless Buffalo Chicken Tenders", "Approx. 40 pcs", "$49.99"),
+ ("Boneless Chipotle Chicken Bites", "Approx. 40 pcs", "$49.99"),
+ ("Boneless Peter Luger Chicken Tenders", "Approx. 40 pcs", "$49.99"),
+ ("Boneless Dry Rubbed Nuggets", "Approx. 40 pcs", "$49.99"),
+ ("Mini Crab Cakes", "Approx. 40 pcs", "$149.99"),
+]
+COLD_SALADS = [  # price = medium bowl / large bowl
+ ("BLT Pasta", "Fusilli pasta, romaine, iceberg lettuce, tomato, bacon, topped w/our homemade ranch dressing.", "$59.99 / $79.99"),
+ ("Bowtie Primavera", "Bowtie pasta, cherry tomato, green & yellow zucchini, fresh basil, chopped green peppers, fresh mozzarella, asparagus & olive oil.", "$49.99 / $69.99"),
+ ("Caesar", "Romaine & grated parm. Croutons & dressing on the side.", "$59.99 / $69.99"),
+ ("Caesar with Grilled Chicken", "", "$69.99 / $79.99"),
+ ("Garden", "Romaine, iceberg, tomatoes, cucumbers, shredded carrots, shredded cabbage. Balsamic on the side.", "$49.99 / $59.99"),
+ ("Garden Supreme", "Romaine, iceberg, tomatoes, black olives, cucumbers, fresh mozzarella, mushrooms, red onions, roasted red peppers. Balsamic on the side.", "$59.99 / $79.99"),
+ ("Greek", "Romaine lettuce, cucumber, red & green peppers, onion, sliced black olives, feta cheese, olive oil & vinegar.", "$49.99 / $59.99"),
+ ("Greek Pasta Salad", "Penne pasta, cucumber, red & green peppers, onion, sliced black olives, feta cheese, olive oil & vinegar.", "$49.99 / $59.99"),
+ ("Italian Pasta", "Tri-color tortellini, asparagus, sliced olives, tomatoes, basil, Italian dressing.", "$49.99 / $69.99"),
+ ("Joe DiMaggio", "Tri-color rotini, fresh diced tomato, basil, fresh mozzarella, red & yellow peppers, red onion, in extra virgin olive oil.", "$49.99 / $59.99"),
+ ("Orzo", "Orzo, green beans, sun-dried tomatoes, fresh basil, and sliced black olives in olive oil.", "$44.99 / $64.99"),
+ ("Penne Tomato", "Penne pasta, sliced plum tomato, basil & extra virgin olive oil.", "$39.99 / $49.99"),
+ ("Sicilian Pasta", "Penne pasta, asparagus tips, sautéed prosciutto, olive oil & grated cheese.", "$54.99 / $69.99"),
+ ("Tomato Cucumber", "Cucumbers, sliced tomatoes, and red onion in olive oil & red wine vinegar.", "$39.99 / $49.99"),
+ ("Tortellini", "Cheese tortellini, red & yellow peppers, topped w/grated cheese in extra virgin olive oil.", "$49.99 / $79.99"),
+]
+HOT_TRAYS = [
+ ("Eggplant", "eggplant", [
+  ("Eggplant Parmigiana", "Fried eggplant with mozzarella and marinara.", "$59.99"),
+  ("Eggplant Rollatini", "Fried eggplant stuffed w/Romano cheese, ricotta, and fresh mozzarella in marinara. Approx. 15 pcs.", "$59.99"),
+  ("Stuffed Eggplant", "Fried eggplant stuffed w/spinach, ricotta, and fresh mozzarella in marinara. Approx. 15 pcs.", "$89.99"),
+ ]),
+ ("Beef & Pork", "beef-pork", [
+  ("Baby Back Ribs", "Tender meaty baby back pork ribs in our homemade BBQ sauce. Approx. 25 ribs.", "$89.99"),
+  ("Beef Burgundy", "Beef sirloin w/light red onions in a hearty burgundy and mushroom sauce.", "$79.99"),
+  ("Italian Meatballs", "Beef & pork in marinara sauce. 12 pcs.", "$59.99"),
+  ("Homemade Meatloaf", "Beef & pork in brown gravy. 14 pcs.", "$59.99"),
+  ("Pork Marsala", "Sliced pork cutlets w/mushrooms in a marsala wine sauce.", "$49.99"),
+  ("Pulled Pork", "Pork shoulder in our homemade BBQ sauce.", "$79.99"),
+  ("Sliced Roast Beef au Jus", "Tender rare sliced roast beef with au jus on the side.", "$99.99"),
+  ("Sausage w/Peppers & Onions", "Grilled store-made sausage w/fresh peppers & onions, with or without sauce.", "$69.99"),
+  ("Swedish Meatballs", "Tender beef meatballs in a rich, creamy sauce. Approx. 30 pcs.", "$79.99"),
+ ]),
+ ("Pasta", "pasta", [
+  ("Baked Ziti", "", "$49.99"),
+  ("Cavatelli & Broccoli", "Sautéed in olive oil and garlic.", "$49.99"),
+  ("Cavatelli & Broccoli with Homemade Sausage", "", "$59.99"),
+  ("Cavatelli & Broccoli Rabe", "Sautéed in olive oil and garlic.", "$59.99"),
+  ("Cavatelli & Broccoli Rabe with Homemade Sausage", "", "$69.99"),
+  ("Lasagna – Cheese", "", "$49.99"),
+  ("Lasagna – Meat", "", "$69.99"),
+  ("Lasagna Rollup", "Spinach & ricotta wrapped in lasagna noodles. Approx. 12 pcs.", "$79.99"),
+  ("Linguine Amore", "Linguine with sun-dried tomatoes in olive oil & roasted garlic.", "$44.99"),
+  ("Macaroni & Cheese", "A homemade blend of cheese and elbow macaroni.", "$59.99"),
+  ("Penne alla Vodka", "In a creamy pink vodka sauce.", "$49.99"),
+  ("Rigatoni Bolognese", "A hearty meat sauce w/sautéed onions.", "$69.99"),
+  ("Stuffed Shells", "12 pcs.", "$49.99"),
+ ]),
+ ("Poultry", "poultry", [
+  ("Bone-in BBQ Chicken", "12 pcs.", "$59.99"),
+  ("Bone-in Fried Chicken", "12 pcs.", "$54.99"),
+  ("Chicken Asparagus", "Cubes of chicken breast & asparagus sautéed w/roasted peppers, mushrooms, bacon & fresh herbs, served in a light pink cream sauce.", "$69.99"),
+  ("Chicken Balsamic", "Cubed chicken breast w/yellow & red peppers and sun-dried tomatoes in a balsamic vinegar sauce.", "$59.99"),
+  ("Chicken & Broccoli Scampi", "Strips of chicken breast, penne & broccoli in a scampi sauce.", "$69.99"),
+  ("Chicken Cacciatore", "Boneless cubes of chicken breast sautéed with onions, green & red peppers in a light marinara sauce.", "$59.99"),
+  ("Chicken Christina", "Chicken breast stuffed w/fresh mozzarella, roasted peppers, and prosciutto in a white wine sauce. 6 pcs, cut in quarters.", "$69.99"),
+  ("Chicken Francese", "Chicken breast sautéed in seasoned egg batter with our Francese sauce. Approx. 12 pcs.", "$69.99"),
+  ("Chicken Marsala", "Sliced chicken breast sautéed w/mushrooms in a marsala wine sauce.", "$59.99"),
+  ("Chicken Murphy", "Sliced chicken breast w/peppers, onions, potatoes, sweet sausage sautéed in a white wine and roasted garlic sauce.", "$64.99"),
+  ("Chicken Parmigiana", "Fried chicken cutlets with mozzarella and marinara. Approx. 12 pcs.", "$79.99"),
+  ("Chicken Payetta", "Boneless chicken breast sautéed & topped w/chopped tomato, basil, garlic & fresh mozzarella in a light lemon wine sauce. 6 pcs.", "$69.99"),
+  ("Chicken Piccata", "Sliced chicken breast sautéed in a lemon wine sauce w/capers.", "$69.99"),
+  ("Chicken Valdostano", "Boneless chicken breast stuffed w/Parma prosciutto, fresh mozzarella & sautéed in roasted garlic Valdostano sauce. 10 pcs.", "$79.99"),
+  ("Double Stuffed Chicken Parmigiana", "Chicken breast stuffed w/ricotta, mozzarella & grated parm in marinara sauce. 6 pcs, cut in thirds.", "$79.99"),
+  ("Turkey London Broil", "Boneless, sliced skinless turkey breast. Honey teriyaki, balsamic or lemon basil.", "$109.99"),
+  ("Turkey London Broil – Honey Mustard Marinade", "", "$119.99"),
+  ("Turkey Meatballs", "In marinara sauce. 12 pcs.", "$79.99"),
+ ]),
+ ("Seafood", "seafood", [
+  ("Coconut Shrimp", "Coconut breaded shrimp served w/a pineapple/apricot side sauce. Approx. 50 pcs.", "$69.99"),
+  ("Linguine w/Red or White Clam Sauce", "", "$44.99"),
+  ("Shrimp alla Vodka", "Jumbo shrimp cooked in a pink vodka cream sauce over penne pasta.", "$69.99"),
+  ("Shrimp & Broccoli", "Jumbo shrimp & broccoli over penne pasta sautéed w/a garlic butter sauce.", "$69.99"),
+  ("Shrimp Scampi", "Jumbo shrimp sautéed in a lemon wine sauce w/garlic over linguine. Approx. 30 pcs.", "$69.99"),
+ ]),
+ ("Veal", "veal", [
+  ("Veal Francese", "Veal cutlets sautéed w/a seasoned egg batter in a lemon wine sauce.", "$139.99"),
+  ("Veal Marsala", "Sliced veal cutlets sautéed w/fresh mushrooms in a marsala wine sauce.", "$139.99"),
+ ]),
+ ("Vegetables", "vegetables", [
+  ("Asparagus w/Roasted Garlic & Olive Oil", "", "$59.99"),
+  ("Broccoli Rabe w/Roasted Garlic & Olive Oil", "", "$59.99"),
+  ("Broccoli w/Roasted Garlic & Olive Oil", "", "$44.99"),
+  ("Grilled Hickory Smoked Vegetables", "", "$69.99"),
+  ("Mashed Potatoes", "", "$49.99"),
+  ("Roasted Red Bliss Potatoes & Onions", "", "$49.99"),
+  ("String Bean w/Roasted Garlic & Olive Oil", "", "$49.99"),
+  ("Vegetable Medley w/Roasted Garlic & Oil", "", "$54.99"),
+  ("Vegetable Rice Pilaf", "", "$39.99"),
+ ]),
+]
+PLATTERS = [
+ ("Antipasto Platter", "Imported provolone cheese, Italian olive combo, marinated mushrooms, giardiniera salad, dried sausage, pepperoni, roasted peppers, fresh mozzarella balls & breadsticks w/prosciutto. Topped w/decorative flowered Genoa salami, pepperoni & provolone.", "Sm $69.99 · Med $99.99 · Lg $139.99"),
+ ("Beef Tenderloin on Garlic Toast Platter", "Roasted to medium rare, sliced & arranged on garlic toast. With Boar's Head horseradish mayonnaise on the side.", "Sm (30 pc) $129.99 · Med (40 pc) $179.99 · Lg (60 pc) $259.99"),
+ ("Bruschetta Platter", "", "Sm $29.99 · Med $39.99 · Lg $59.99"),
+ ("Caprese Platter", "Sliced homemade mozzarella & garden ripe tomatoes, with roasted red peppers and fresh basil. Sprinkled w/olive oil and oregano flakes.", "Sm $59.99 · Med $79.99 · Lg $99.99"),
+ ("Cheese Platter", "", "Sm $59.99 · Med $69.99 · Lg $79.99"),
+ ("Cocktail Sandwich Platter", "10 sandwiches on rye & whole wheat: (4) ham & Swiss, (4) turkey & yellow American, (2) roast beef. Quartered & decoratively arranged on trays w/mustard, mayo & frilled toothpicks. 40 pieces.", "$99.99"),
+ ("Cold Cut Platter", "Serves 10. Roast beef, turkey, salami, ham, Swiss cheese, American cheese, provolone cheese, 12 dinner rolls. Condiments on the side.", "$179.99"),
+ ("Fresh Fruit Platter", "", "Sm $69.99"),
+ ("Fresh Vegetable Platter", "Assortment of raw vegetables & creamy ranch dressing.", "Sm $59.99 · Med $89.99 · Lg $119.99"),
+ ("Shrimp Cocktail Platter", "Jumbo shrimp accompanied by lemon wedges & our special homemade cocktail sauce.", "Sm (40–50 pc) $89.99 · Med (80–100 pc) $149.99 · Lg (120–150 pc) $199.99"),
+ ("Sloppy Joe Platter", "Five triple-deckers cut into thirds, on rye with roast beef, turkey, coleslaw and Russian dressing.", "$99.99"),
+ ("Stromboli Platter", "Assortment of eggplant, chicken parmigiana, Italian (pepperoni, ham & mozzarella), and broccoli & cheddar. Includes marinara sauce.", "Sm (20 pc) $59.99 · Med (30 pc) $79.99 · Lg (40 pc) $99.99"),
+ ("Wrap Platter", "10 assorted wraps cut in half (20 half wraps). Assorted cold cuts and your choice of potato, macaroni or coleslaw salad. Condiments on the side.", "$119.99"),
+]
+
+
+def menu(items, cls="price menu two"):
+    rows = []
+    for name, desc, price in items:
+        d = f"<small>{html.escape(desc)}</small>" if desc else ""
+        rows.append(f'<li><span class="item"><strong>{html.escape(name)}</strong>{d}</span><span>{"<br>".join(html.escape(p) for p in price.split(" · "))}</span></li>')
+    return f'<ul class="{cls}">' + "".join(rows) + "</ul>"
+
+
+CATERING_JUMP = ([("appetizers", "Appetizers"), ("cold-salads", "Cold Salads")] +
+                 [(a, t) for t, a, _ in HOT_TRAYS] + [("platters", "Platters")])
+
+PAGES["catering.html"] = ("Catering Menu – Drew's Market | Trays, Platters & Salads", "Full Drew's Market catering menu with prices: appetizers, homemade cold salads, hot half trays and platters. Spring Lake Heights, NJ.",
  hero("Catering", "Our catering menu is available all year round.", "ribs") + f"""
 <section class="wrap">
   <p class="lead">From intimate family gatherings to 300-sandwich corporate luncheons, we'll build the right menu for your event.</p>
-  <h2>Platters</h2>
-  {ul(["Antipasto Platter (Small, Medium, Large)", "Asparagus w/ Roasted Garlic & Olive Oil", "Shrimp Cocktail Platter", "Caprese Platter", "Hot trays, entrées, pasta & salads", "Sandwich platters & desserts"])}
-  {PRICE_NOTE}
+  <nav class="jump" aria-label="Catering menu sections">{"".join(f'<a href="#{a}">{html.escape(t)}</a>' for a, t in CATERING_JUMP)}</nav>
+
+  <h2 id="appetizers">Appetizers</h2>
+  {menu(APPETIZERS)}
+
+  <h2 id="cold-salads">Homemade Cold Salads</h2>
+  <p class="sub">Prices shown as medium bowl (8–10 people) / large bowl (15–18 people).</p>
+  {menu(COLD_SALADS)}
+
+  <h2 id="hot-trays">Hot Trays</h2>
+  <p class="sub">Half trays, approximately 8–10 servings.</p>
+  <p class="note">Food is picked up cold. Proper heating takes approximately 1½ hours on sternos or 30 minutes in the oven, and we recommend heating food indoors. Sternos and utensils are not provided.</p>
+  {"".join(f'<h3 id="{a}">{html.escape(t)}</h3>{menu(items)}' for t, a, items in HOT_TRAYS)}
+
+  <h2 id="platters">Platters</h2>
+  {menu(PLATTERS, "price menu sizes")}
+
+  <p class="note">Payment in full is required when the order is placed. We must have 48 hours' notice for cancellations or changes. Prices are subject to change without notice. NJ sales tax not included where applicable.</p>
   <p>Hosting for the holidays? <a href="thanksgiving.html">See our Thanksgiving 2026 menu</a>.</p>
   <div class="cards small">{img("ribs", "Barbecue ribs")}{img("meatballs", "Homemade meatballs")}{img("chickenparm", "Chicken Parm hero")}{img("roastbeef", "Boar's Head roast beef")}</div>
   {cta("Plan your event")}
@@ -232,7 +384,7 @@ PAGES["menus.html"] = ("Menus – Drew's Market | Catering, Sandwich & Holiday M
  hero("Menus", "Catering · Sandwich &amp; Salad · Holiday · Cooking Instructions") + f"""
 <section class="wrap">
   <div class="cards">
-    <div class="card"><h2>Catering Menu</h2><p>Available all year round.</p><p>Call for the current menu and prices.</p></div>
+    <div class="card"><h2>Catering Menu</h2><p>Appetizers, cold salads, hot trays and platters, available all year round.</p><p><a class="btn" href="catering.html">View catering menu</a></p></div>
     <div class="card"><h2>Sandwich &amp; Salad Menu</h2><p>Heroes, wraps, homemade salads.</p><p>Call for the current menu and prices.</p></div>
     <a class="card feature" href="thanksgiving.html"><h2>Thanksgiving 2026</h2><p>Fresh turkeys, cooked dinners, sides &amp; desserts. Order by <strong>Sunday 11/22</strong>.</p><p><span class="btn">View menu</span></p></a>
     <div class="card"><h2>Cooking Instructions</h2><p>Reheating instructions for cooked holiday foods and roasts.</p><p class="todo">PDF coming soon.</p></div>
